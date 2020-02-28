@@ -8,7 +8,7 @@ class Solution(object):
                 if numOfZeroes>0:
                     nums[i-numOfZeroes]=nums[i]
                     nums[i]=0
-            i+=1
+        
 
 def test(inputList, outputList):
     inputListCopy = inputList[:]
