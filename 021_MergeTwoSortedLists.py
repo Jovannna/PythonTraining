@@ -1,42 +1,42 @@
 class ListNode(object):
-     def __init__(self, x):
-         self.val = x
-         self.next = None
-class ListNode(object):
-     def __init__(self, x):
-         self.val = x
-         self.next = None
+    def __init__(self, x):
+        self.val = x
+        self.next = None
+    def listToArray(self,l):
+        arr=[]
+        while l!=None:
+            arr.append(l.val)
+            l=l.next
+        return arr
+
 
 class Solution(object):
     def mergeTwoLists(self, l1, l2):
         last=None
-        lr=None
+        lresult=None
         while (l1!=None) and (l2!=None):
             if l1.val<=l2.val:
-                if lr==None:
-                    lr=l1
-                    last=l1
+                if lresult==None:
+                    lresult=l1
                 else: 
                     last.next=l1
-                    last=last.next
+                last=l1
                 l1=l1.next
                 
             else:
                 if (l2.val<l1.val):
-                    if lr==None:
-                        lr=l2
-                        last=lr
+                    if lresult==None:
+                        lresult=l2   
                     else: 
                         last.next=l2 
-                        last=last.next
+                    last=l2 
                 l2=l2.next
                        
         if (l1==None):
             last.next=l2
         else:
-            if (l2==None):
-                last.next=l1
-        return lr
+            last.next=l1
+        return lresult
             
 def arrayToList(arr):
     l=None
@@ -49,12 +49,7 @@ def arrayToList(arr):
             last.next=pom
             last=last.next
     return l
-def listToArray(l):
-    arr=[]
-    while l!=None:
-        arr.append(l.val)
-        l=l.next
-    return arr
+
 
 
 def test(inputList1, inputList2, outputList):
@@ -67,7 +62,7 @@ def test(inputList1, inputList2, outputList):
     
     list3=sol.mergeTwoLists(list1,list2)
 
-    inputList=listToArray(list3)
+    inputList=list3.listToArray(list3)
 
     n = len(inputList)
     solOK = True
