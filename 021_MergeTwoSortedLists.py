@@ -2,8 +2,9 @@ class ListNode(object):
     def __init__(self, x):
         self.val = x
         self.next = None
-    def listToArray(self,l):
+    def listToArray(self):
         arr=[]
+        l = self
         while l!=None:
             arr.append(l.val)
             l=l.next
@@ -62,7 +63,7 @@ def test(inputList1, inputList2, outputList):
     
     list3=sol.mergeTwoLists(list1,list2)
 
-    inputList=list3.listToArray(list3)
+    inputList=list3.listToArray()
 
     n = len(inputList)
     solOK = True
