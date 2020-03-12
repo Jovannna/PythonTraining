@@ -51,7 +51,7 @@ def arrayToList(arr):
             last=last.next
     return l
 
-def test(resultList, inputList2, outputList):
+def test(inputList1, inputList2, outputList):
     
     sol = Solution()
     list1=arrayToList(inputList1)
