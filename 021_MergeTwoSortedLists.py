@@ -51,19 +51,16 @@ def arrayToList(arr):
             last=last.next
     return l
 
-
-
-def test(inputList1, inputList2, outputList):
+def test(resultList, inputList2, outputList):
     
     sol = Solution()
     list1=arrayToList(inputList1)
     
-
     list2=arrayToList(inputList2)
     
     list3=sol.mergeTwoLists(list1,list2)
 
-    inputList=list3.listToArray()
+    resultList=list3.listToArray()
 
     n = len(inputList)
     solOK = True
@@ -75,6 +72,6 @@ def test(inputList1, inputList2, outputList):
     if (solOK):
         print('{0} - input = {1}, {2}'.format(solOK, inputList1, inputList2))
     else:
-        print('{0} - input = {1}, {2}, output = {3}, expected = {4}'.format(solOK, inputList1, inputList2, inputList, outputList))
+        print('{0} - input = {1}, {2}, output = {3}, expected = {4}'.format(solOK, inputList1, inputList2, resultList, outputList))
 
 test([1,2,4],[1,3,4], [1,1,2,3,4,4])
