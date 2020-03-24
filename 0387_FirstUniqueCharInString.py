@@ -1,19 +1,27 @@
 class Solution(object):
     def firstUniqeChar(self, s):
-        a={s[len(s)-1]}
-        indexOfUnique=len(s)-1
-        i=len(s)-2
-        uniqueEl=s[len(s)-1]
-        while i>=0:
-            if s[i] in a:
-                if s[i]==uniqueEL:
-                    indexOfUnique=-1   
+        dict={}
+        uniqueEl=' '
+        indexOfUnique=-1
+        for i in range(len(s)):
+            if s[i] in dict:
+                dict[s[i]]+=1   
             else:
-                a.add(s[i])
-                indexOfUnique=i
-                uniqueEL=s[i]
-            i-=1
+                dict[s[i]]=1
+        for x in dict:
+            if dict[x]==1:
+                uniqueEl=x
+                break;
+        if uniqueEl!=' ':
+            i=0;
+            while i<len(s):
+                if s[i]==uniqueEl:
+                    indexOfUnique=i
+                    break;
+                i+=1
         return indexOfUnique
+   
+        
 
 def test(inputString, outputInt):
     sol=Solution()
@@ -30,3 +38,4 @@ def test(inputString, outputInt):
 
 test("leetcode",0)
 test("loveleetcode",2)
+test("aab",2)
