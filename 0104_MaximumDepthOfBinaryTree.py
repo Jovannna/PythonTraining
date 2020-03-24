@@ -3,25 +3,25 @@ class TreeNode(object):
         self.val = x
         self.left = None
         self.right = None
+  
 
 class Solution(object):
     def maxDepth(self, root):
         currMaxDepth = 0
-        currRoot = root
-        if currRoot != None:
-            if (self.maxDepth(root.left)>self.maxDepth(root.right)):
-                currMaxDepth = self.maxDepth(root.left)+1
+        if root != None:
+            maxDepthLeft=self.maxDepth(root.left)
+            maxDepthRight=self.maxDepth(root.right)
+            if (maxDepthLeft>maxDepthRight):
+                currMaxDepth = maxDepthLeft+1
             else:
-                currMaxDepth = self.maxDepth(root.right)+1
+                currMaxDepth = maxDepthRight+1
         return currMaxDepth
 
 
 def arrayToTree(arr, i):
-
     if i<len(arr):
         if (arr[i]!=None):
-            temp = TreeNode(arr[i])
-            root = temp
+            root = TreeNode(arr[i])
             root.left = arrayToTree(arr,2*i+1)	
             root.right = arrayToTree(arr,2*i+2)
             return(root)    
@@ -45,3 +45,4 @@ def test(inputArray, outputInt):
 
 
 test([3,9,20,None,None,15,7],3)
+test([1,2,3,4,5,None,None,6,7],4)
